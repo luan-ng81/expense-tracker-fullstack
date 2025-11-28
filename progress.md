@@ -29,13 +29,13 @@ Become an expert fullstack engineer by building real-world applications with Rea
 
 ### Learning Goals
 - [x] Docker containers and devcontainers basics
+- [x] Docker multi-service setup with docker-compose
+- [x] React hooks (useState, useEffect)
+- [x] API integration with fetch
 - [ ] Django REST Framework basics
-- [ ] React hooks (useState, useEffect)
 - [ ] CRUD operations
 - [ ] User authentication (JWT/Sessions)
 - [ ] Database modeling (PostgreSQL)
-- [ ] Docker multi-service setup with docker-compose
-- [ ] API integration with axios/fetch
 - [ ] Data visualization with charts
 - [ ] Form handling & validation
 
@@ -49,11 +49,11 @@ Become an expert fullstack engineer by building real-world applications with Rea
 
 ### Implementation Roadmap (12 Chunks)
 
-**Phase 1: Docker Foundation (Setup First!)**
-- [ ] **Chunk 1**: Create Django backend project structure + Dockerfile
-- [ ] **Chunk 2**: Create React frontend project structure + Dockerfile
-- [ ] **Chunk 3**: Create docker-compose.yml with PostgreSQL database
-- [ ] **Chunk 4**: Test full stack running together (frontend, backend, database)
+**Phase 1: Docker Foundation (Setup First!)** ✅ COMPLETED
+- [x] **Chunk 1**: Create Django backend project structure + Dockerfile
+- [x] **Chunk 2**: Create React frontend project structure + Dockerfile
+- [x] **Chunk 3**: Create docker-compose.yml with PostgreSQL database
+- [x] **Chunk 4**: Test full stack running together (frontend, backend, database)
 
 **Phase 2: Django Backend Development**
 - [ ] **Chunk 5**: Create Django Expense model with basic fields
@@ -76,25 +76,42 @@ Become an expert fullstack engineer by building real-world applications with Rea
 ✅ **Avoids rework** - Don't set up locally, then dockerize later
 
 ### Next Steps
-**Ready for Chunk 1: Django Backend + Dockerfile**
+**Ready for Chunk 5: Create Django Expense Model**
 
 You'll create:
-1. `backend/` directory
-2. Django project with requirements.txt
-3. `backend/Dockerfile` to containerize Django
-4. Basic Django REST Framework setup
+1. Django app called `expenses`
+2. Expense model with fields (amount, description, category, date)
+3. Run migrations to create database tables
+4. Test model in Django admin
 
 ### Progress Notes
 
-#### Session: 2025-11-27 - Roadmap Planning
-**What we covered:**
-- Reviewed two learning files (LEARNING_JOURNAL.md and LEARNING_PROGRESS.md)
-- Decided to consolidate into single progress.md
-- Reorganized roadmap to prioritize Docker setup first
-- Aligned approach for both local and Codespaces development
+#### Session: 2025-11-27 - Phase 1 Complete: Docker Foundation
+**What we accomplished:**
+- ✅ **Chunk 1**: Created Django backend with Dockerfile using docker-compose run
+- ✅ **Chunk 2**: Created React frontend with Vite using docker-compose run
+- ✅ **Chunk 3**: Set up docker-compose.yml with PostgreSQL, backend, and frontend services
+- ✅ **Chunk 4**: Verified full-stack communication with health check API endpoint
+- ✅ Configured CORS for frontend-backend communication
+- ✅ Connected Django to PostgreSQL database
+- ✅ Committed and pushed Phase 1 to GitHub
 
-**Key Decision:**
-- Docker-first approach: Set up all containers (Django, React, PostgreSQL) before building features
+**Key Learnings:**
+- Docker-first approach: Created entire project without local Python/Node installations
+- Used `docker-compose run` to execute commands inside containers
+- Understood CORS and why it's needed for frontend-backend communication
+- Learned about ALLOWED_HOSTS security in Django
+- Practiced React hooks: useState, useEffect for API calls
+- Set up .gitignore to keep repository clean
+
+**Challenges Solved:**
+- Docker build failing due to empty package.json → Created simpler Dockerfile first, then replaced
+- CORS errors blocking API calls → Configured django-cors-headers middleware
+- Hot Module Replacement not working → Restarted frontend container
+
+**Next Session Preview:**
+- Phase 2: Django Backend Development
+- Create Expense model with database fields
 
 #### Session: 2025-11-25 - Understanding Containers
 **What we covered:**
@@ -126,32 +143,38 @@ You'll create:
 ## 🛠️ Skills Progression Tracker
 
 ### React Skills
-- [ ] **Basics**: Components, Props, JSX
-- [ ] **Hooks**: useState, useEffect, useContext
+- [x] **Basics**: Components, Props, JSX
+- [x] **Hooks**: useState, useEffect basics
+- [x] **API Integration**: fetch, async/await basics
+- [ ] **Hooks Advanced**: useContext, custom hooks
 - [ ] **State Management**: Context API / Redux basics
 - [ ] **Routing**: React Router v6
 - [ ] **Forms**: Controlled components, validation
-- [ ] **API Integration**: fetch/axios, async/await
-- [ ] **Advanced**: Custom hooks, performance optimization
+- [ ] **Advanced**: Performance optimization, useMemo, useCallback
 - [ ] **Testing**: Jest, React Testing Library
 
 ### Django Skills
-- [ ] **Basics**: Models, Views, URLs
+- [x] **Basics**: Views, URLs, Settings
+- [x] **Database**: PostgreSQL connection, Migrations basics
+- [x] **Security**: CORS, ALLOWED_HOSTS
+- [ ] **Models**: Creating models, fields, relationships
 - [ ] **REST API**: Django REST Framework, Serializers
 - [ ] **Authentication**: JWT, Sessions, Permissions
-- [ ] **Database**: ORM, QuerySets, Migrations
+- [ ] **Database Advanced**: ORM, QuerySets, complex queries
 - [ ] **Advanced**: Custom managers, signals, middleware
-- [ ] **Security**: CORS, CSRF, input validation
+- [ ] **Security Advanced**: CSRF, input validation, SQL injection prevention
 - [ ] **Testing**: pytest, unit tests, integration tests
 - [ ] **Optimization**: Database indexing, query optimization
 
 ### DevOps & Tools
 - [x] **Docker Basics**: Containers, devcontainers
-- [ ] **Docker Advanced**: Dockerfile, docker-compose, multi-service orchestration
-- [ ] **Git**: Branching, merging, PR workflow
+- [x] **Docker Advanced**: Dockerfile, docker-compose, multi-service orchestration
+- [x] **Git**: Basic workflow, commits, push to GitHub
+- [x] **Databases**: PostgreSQL basics with Docker
+- [ ] **Git Advanced**: Branching, merging, PR workflow
 - [ ] **Deployment**: Render/Railway/AWS basics
 - [ ] **CI/CD**: GitHub Actions basics
-- [ ] **Databases**: PostgreSQL, Redis (caching)
+- [ ] **Databases Advanced**: Redis (caching), query optimization
 
 ### General Engineering
 - [ ] **API Design**: REST principles, versioning
@@ -234,12 +257,16 @@ Queue of projects to build after completing current ones:
 
 ## 🏆 Milestones & Celebrations
 
-- [ ] First Dockerfile created
-- [ ] First docker-compose.yml working
-- [ ] First Django API endpoint created
-- [ ] First React component rendered
-- [ ] First database query working
-- [ ] First full-stack feature (frontend ↔ backend)
+- [x] First Dockerfile created (Django + React)
+- [x] First docker-compose.yml working (3 services!)
+- [x] First Django API endpoint created (health check)
+- [x] First React component rendered (App.jsx)
+- [x] First full-stack feature (frontend ↔ backend communication)
+- [x] First git commit and push with Docker setup
+- [ ] First database model created
+- [ ] First CRUD API endpoint working
+- [ ] First React form submitting data
+- [ ] First complete feature (add expense)
 - [ ] First project deployed to production
 - [ ] First project completed end-to-end
 - [ ] Built 5 full-stack applications
@@ -249,8 +276,9 @@ Queue of projects to build after completing current ones:
 
 **Last Updated**: 2025-11-27
 **Current Project**: Personal Expense Tracker
-**Next Chunk**: #1 - Create Django backend project structure + Dockerfile
+**Phase Completed**: Phase 1 - Docker Foundation ✅
+**Next Chunk**: #5 - Create Django Expense model with basic fields
 **Projects Completed**: 0/10
 
 When you're ready to continue, start your next session with me by saying:
-"You're my fullstack engineering mentor. See progress.md for context. Today I want to work on Chunk 1: Setting up the Django backend with Docker."
+"You're my fullstack engineering mentor. See progress.md for context. Today I want to work on Phase 2: Django Backend Development, starting with Chunk 5: Creating the Expense model."
